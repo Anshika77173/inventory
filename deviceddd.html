@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Devices</title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            width: 100vw;
+            height: 100vh;
+            font-size: 0.88rem;
+            user-select: none;
+            overflow-x: hidden;
+            background: var(--clr-color-background);
+        }
+
+        h1 {
+            font-weight: 800;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        select {
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            font-size: 1rem;
+            border: 1px solid var(--clr-info-dark);
+            border-radius: var(--border-radius-1);
+            transition: all 0.3s ease;
+            appearance: none; /* Remove default select arrow */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: 24px 24px;
+            background-position: 95% 50%;
+            background-repeat: no-repeat;
+            cursor: pointer;
+        }
+
+        select:focus {
+            border-color: var(--clr-primary);
+            box-shadow: 0 0 0 2px var(--clr-primary);
+        }
+
+        select option {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        select option:hover {
+            background-color: #f0f0f0;
+        }
+
+        .form-group {
+            margin-bottom: 1.6rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            font-size: 1rem;
+            border: 1px solid var(--clr-info-dark);
+            border-radius: var(--border-radius-1);
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--clr-primary);
+            box-shadow: 0 0 0 2px var(--clr-primary);
+        }
+
+        button {
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            font-size: 1rem;
+            background-color: var(--clr-primary);
+            color: var(--clr-white);
+            border: none;
+            border-radius: var(--border-radius-1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: var(--clr-primary-variant);
+        }
+
+        button + button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-group">
+        <h1>Devices</h1>
+        <select id="deviceSelect">
+            <option value="">Choose a device</option>
+        </select>
+    </div>
+    <input type="text" id="val" class="form-control">
+    <button onclick="insertValue(); return false;">Add option</button>
+    <button onclick="removeSelectedValue(); return false;">Remove selected option</button>
+
+    <script src="deviceddd.js"></script>
+</body>
+</html>

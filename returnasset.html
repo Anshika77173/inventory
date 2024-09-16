@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Return Asset</title>
+    <link rel="stylesheet" type="text/css" href="das.css">
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            width: 100vw;
+            height: 100vh;
+            font-size: 0.88rem;
+            user-select: none;
+            overflow-x: hidden;
+            background: var(--clr-color-background);
+        }
+
+        h1 {
+            font-weight: 800;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.6rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-size: 1rem;
+            color: var(--clr-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            font-size: 1rem;
+            border: 1px solid var(--clr-info-dark);
+            border-radius: var(--border-radius-1);
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--clr-primary);
+            box-shadow: 0 0 0 2px var(--clr-primary);
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            font-size: 1rem;
+            background-color: var(--clr-primary);
+            color: var(--clr-white);
+            border: none;
+            border-radius: var(--border-radius-1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: var(--clr-primary-variant);
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+            height: 400px;
+            margin-top: 2rem;
+        }
+
+        .dark-theme-variables label {
+            color: black;
+        }
+
+        .dark-theme-variables h1 {
+            color: var(--clr-white);
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container"style="display: flex;justify-content: center;">
+        <form action="transaction.php" method="POST"  style="width: 50%;">  
+            <h1>Return Asset</h1>
+            <div class="form-group">
+                <label for="issue_date">Issue Date</label>
+                
+                <input type="text" name="date" id="date" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+                <label for="left_date">Left Date</label>
+                <input type="datetime-local" name="left_date" id="left_date" class="form-control" placeholder="Enter a left date">
+            </div>
+            <div class="form-group">
+                <label for="asset_id">Asset ID</label>
+                <input type="text" name="asset_id" id="asset_id" class="form-control" placeholder="Enter asset ID" onchange="fetchEmployeeDetails()" >
+            </div>
+            <div class="form-group">
+                <label for="employee_name">Employee Name</label>
+                <input type="text" name="employees_name" id="employees_name" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" name="location" id="location" class="form-control" readonly>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Fetch issue dates
+        fetch('transaction.php', {
+            method: 'GET'
+        })
+       .then(response => response.json())
+       .then(data => {
+            const issueDateSelect = document.getElementById('date');
+            data.forEach(date => {
+                const option = document.createElement('option');
+                option.value = date;
+                option.text = date;
+                issueDateSelect.appendChild(option);
+            });
+        })
+       .catch(error => console.error('Error:', error));
+       </script>
+    <script src="returnasset.js"></script>
+</body>
+</html>

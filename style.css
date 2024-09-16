@@ -1,0 +1,60 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url(coc.jpg) no-repeat center center/cover;
+    background-size: cover;
+}
+
+.container {
+    max-width: 600px; /* Increase the max-width to make the form larger */
+    width: 100%;
+    padding: 50px; /* Increase padding for a larger feel */
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    /* background-color: white; */
+    border-radius: 8px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 32px; /* Increase the font size of the heading */
+    margin-bottom: 30px;
+    text-align: center; /* Add more space below the heading */
+}
+
+.form-group {
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 15px; /* Increase padding inside the input fields */
+    font-size: 18px; /* Increase the font size inside the input fields */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 15px; /* Increase padding for a larger button */
+    font-size: 18px; /* Increase the font size of the button text */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+p {
+    margin-top: 30px; /* Add more space above the paragraph */
+    font-size: 16px; /* Increase the font size of the text */
+}

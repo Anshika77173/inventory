@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="type/css" href="das.css">
+    <link rel="stylesheet" type="type/css" href="location.css">
+    <title>Vendors</title>
+    <style>
+          :root {
+  --clr-color-background: #f7f7f7;
+  --clr-dark: #333;
+  --clr-info-dark: #666;
+  --clr-primary: #63b0cf;
+  --clr-primary-variant: #63b0cf;
+  --clr-white: #fff;
+  --border-radius-1: 0.4rem;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  font-size: 0.88rem;
+  user-select: none;
+  overflow-x: hidden;
+  background: var(--clr-color-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-group {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius-1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--clr-dark);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+  color: var(--clr-dark);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  border: 1px solid var(--clr-info-dark);
+  border-radius: var(--border-radius-1);
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--clr-primary);
+  box-shadow: 0 0 0 2px var(--clr-primary);
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  background-color: var(--clr-primary);
+  color: var(--clr-white);
+  border: none;
+  border-radius: var(--border-radius-1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--clr-primary-variant);
+}
+
+.dark-theme-variables {
+  --clr-color-background: #333;
+  --clr-dark: #fff;
+  --clr-info-dark: #fff;
+  --clr-primary: #66D9EF;
+  --clr-primary-variant: #44C9E4;
+  --clr-white: #333;
+}
+
+.dark-theme-variables.form-group {
+  background: #333;
+  border: 1px solid #444;
+  color: #fff;
+}
+
+.dark-theme-variables h2 {
+  color: black;
+}
+
+.dark-theme-variables label {
+  color: black;
+}
+
+.dark-theme-variables.form-control {
+  border: 1px solid #444;
+  color: #fff;
+}
+
+.dark-theme-variables button[type="submit"] {
+  background-color: #66D9EF;
+  color: #333;
+}
+
+.dark-theme-variables button[type="submit"]:hover {
+  background-color: #44C9E4;
+}
+        </style>
+</head>
+<body>
+   
+    <form  action="vendor.php" method="POST">
+       <div class="form-group">
+        <h2>Vendor Details</h2>
+       
+        <label>Vendor ID</label>
+        <input type="text" class="form-control" name="vendor_id" placeholder="Enter Vendor ID">
+       
+        <label>Vendor Name</label>
+        <input type="text" class="form-control" name="vendor_name" placeholder="Enter Vendor Name">
+       
+        <label>Date of Joining</label>
+        <input type="datetime-local" class="form-control" name="date" placeholder="Enter date of Joining">
+       
+        <button type="submit">Submit</button>
+    </div>
+    </form>
+    <script>
+          function applyTheme(theme) {
+                if (theme === 'dark') {
+                    document.body.classList.add('dark-theme-variables');
+                    document.querySelectorAll('.form-control').forEach(input => input.classList.add('dark-theme-variables'));
+                    document.querySelector('form').classList.add('dark-theme-variables');
+                    document.querySelector('button').classList.add('dark-theme-variables');
+                } else {
+                    document.body.classList.remove('dark-theme-variables');
+                    document.querySelectorAll('.form-control').forEach(input => input.classList.remove('dark-theme-variables'));
+                    document.querySelector('form').classList.remove('dark-theme-variables');
+                    document.querySelector('button').classList.remove('dark-theme-variables');
+                }
+            }
+    
+            // Apply the theme on load
+            document.addEventListener('DOMContentLoaded', () => {
+                const theme = localStorage.getItem('theme');
+                applyTheme(theme);
+            });
+    
+            // Listen for theme changes from parent
+            window.addEventListener('storage', () => {
+                const theme = localStorage.getItem('theme');
+                applyTheme(theme);
+            });
+    </script>
+</body>
+</html>

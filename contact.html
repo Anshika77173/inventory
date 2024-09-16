@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+        :root {
+            --clr-primary: #7380ec;
+            --clr-danger: #ff7782;
+            --clr-success: #41f1b6;
+            --clr-white: #fff;
+            --clr-info-dark: #7d8da1;
+            --clr-info-light: #dce1eb;
+            --clr-dark: #363949;
+            --clr-warnig: #ff4edc;
+            --clr-light: rgba(132, 139, 200, 0.18);
+            --clr-primary-variant: #111e88;
+            --clr-dark-variant: #677483;
+            --clr-color-background: #f6f6f9;
+
+            --card-border-radius: 2rem;
+            --border-radius-1: 0.4rem;
+            --border-radius-2: 0.8rem;
+            --border-radius-3: 1.2rem;
+
+            --card-padding: 1.8rem;
+            --padding-1: 1.2rem;
+            --box-shadow: 0 2rem 3rem var(--clr-light);
+        }
+
+        .dark-theme-variables {
+            --clr-color-background: #181a1e;
+            --clr-white: #202528;
+            --clr-light: rgba(0, 0, 0, 0.4);
+            --clr-dark: #edeffd;
+            --clr-dark-variant: #677483;
+            --box-shadow: 0 2rem 3rem var(--clr-light);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: var(--clr-color-background);
+        }
+
+        .contact {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center; /* Center the content horizontally */
+            min-height: 100vh; /* Ensure the section takes up the full height of the viewport */
+        }
+
+        .contact .content {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact .content h2 {
+            font-size: 2rem;
+            color: var(--clr-dark);
+        }
+
+        .contact .content p {
+            color: var(--clr-dark-variant);
+            max-width: 800px; /* Set a max width to avoid very long lines */
+            margin: 0 auto; /* Center the paragraph within the content */
+            font-size: 1rem; /* Adjust font size as needed */
+            line-height: 1.5; /* Set a comfortable line height */
+        }
+
+        .contact .container {
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center; /* Center elements horizontally */
+            width: 100%;
+            max-width: 1200px; /* Maximum width for the container */
+        }
+
+        .contactInfo {
+            width: 100%;
+            display: flex;
+            justify-content: center; /* Center the contact info horizontally */
+            margin-bottom: 2rem;
+        }
+
+        .contactInfo .box {
+            display: flex;
+            align-items: center;
+            margin-right: 2rem;
+        }
+
+        .contactInfo .box .icon {
+            font-size: 2rem;
+            color: var(--clr-primary);
+            margin-right: 1rem;
+        }
+
+        .contactInfo .box .text h3 {
+            font-size: 1.2rem;
+            color: var(--clr-dark);
+        }
+
+        .contactInfo .box .text p {
+            color: var(--clr-dark-variant);
+        }
+
+        .contactForm {
+            width: 100%;
+            max-width: 600px; /* Maximum width for the form */
+            background: var(--clr-white);
+            padding: var(--card-padding);
+            border-radius: var(--card-border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .contactForm form h2 {
+            color: var(--clr-dark);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .contactForm .inputBox {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .contactForm .inputBox input, 
+        .contactForm .inputBox textarea {
+            width: 100%;
+            padding: 0.5rem;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid var(--clr-dark-variant);
+            outline: none;
+            color: var(--clr-dark);
+            font-size: 1rem;
+        }
+
+        .contactForm .inputBox span {
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding: 0.5rem;
+            font-size: 1rem;
+            color: var(--clr-dark-variant);
+            pointer-events: none;
+            transition: 0.5s;
+        }
+
+        .contactForm .inputBox input:focus ~ span,
+        .contactForm .inputBox input:valid ~ span,
+        .contactForm .inputBox textarea:focus ~ span,
+        .contactForm .inputBox textarea:valid ~ span {
+            transform: translateY(-1.5rem);
+            font-size: 0.8rem;
+            color: var(--clr-primary);
+        }
+
+        .contactForm .inputBox input[type="submit"] {
+            background: var(--clr-primary);
+            color: var(--clr-white);
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        .contactForm .inputBox input[type="submit"]:hover {
+            background: var(--clr-primary-variant);
+        }
+
+        @media screen and (max-width: 768px) {
+            .contactInfo {
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 2rem;
+            }
+
+            .contactInfo .box {
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="contact">
+        <div class="container">
+            <div class="content">
+                <h2>Contact Us</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+            </div>
+            <div class="contactInfo">
+                <div class="box">
+                    <div class="icon">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    </div>
+                    <div class="text">
+                        <h3>Address</h3>
+                        <p>4671 Sugar Camp Road,<br> Owatonna, Minnesota,<br> 55060</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                    </div>
+                    <div class="text">
+                        <h3>Phone</h3>
+                        <p>123-456-7890</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </div>
+                    <div class="text">
+                        <h3>Email</h3>
+                        <p>kbpl@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contactForm">
+                <form>
+                    <h2>Send Message</h2>
+                    <div class="inputBox">
+                        <input type="text" name="" required="required">
+                        <span>Full Name</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="" required="required">
+                        <span>Email</span>
+                    </div>
+                    <div class="inputBox">
+                        <textarea required="required"></textarea>
+                        <span>Type your Message</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" name="" value="Send">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Location</title>
+    <link rel="stylesheet" type="text/css" href="das.css">
+    <link rel="stylesheet" type="text/css" href="location.css">
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            width: 100vw;
+            height: 100vh;
+            font-size: 0.88rem;
+            user-select: none;
+            overflow-x: hidden;
+            background: var(--clr-color-background);
+        }
+
+        h1 {
+            font-weight: 800;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.6rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-size: 1rem;
+            color: var(--clr-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            font-size: 1rem;
+            border: 1px solid var(--clr-info-dark);
+            border-radius: var(--border-radius-1);
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--clr-primary);
+            box-shadow: 0 0 0 2px var(--clr-primary);
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            font-size: 1rem;
+            background-color: var(--clr-primary);
+            color: var(--clr-white);
+            border: none;
+            border-radius: var(--border-radius-1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: var(--clr-primary-variant);
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+            height: 400px;
+            margin-top: 2rem;
+        }
+        .dark-theme-variables label {
+  color: black;
+
+}
+.dark-theme-variables  h2 {
+     color:white;
+}
+
+    </style>
+</head>
+<body>
+    <h1>ADD LOCATION</h1>
+    <form action="database.php" method="POST">
+        <div class="form-group">
+            <label>Location Name</label>
+            <input type="text" class="form-control" name="locationname" placeholder="Enter Location Name" required>
+        </div>
+        <div class="form-group">
+            <label>State</label>
+            <input type="text" class="form-control" name="state" placeholder="Enter State" required>
+        </div>
+        <div class="form-group">
+            <label>District</label>
+            <input type="text" class="form-control" name="district" placeholder="Enter District" required>
+        </div>
+        <div class="form-group">
+            <label>Pin Code</label>
+            <input type="text" class="form-control" name="pincode" placeholder="Enter Pin Code" required>
+        </div>
+        <div class="form-group">
+            <label>Contact</label>
+            <input type="tel" class="form-control" name="contact" placeholder="Enter Contact number" maxlength="10" required>
+        </div>
+        <button type="submit" name="submit">Submit</button>
+    </form>
+   
+    <h2 style="text-align: center;" class="existing">Existing Locations</h2>
+    <iframe src="display.php" style="width:100%; height:400px; border:none;"></iframe>   
+
+    <script>
+        // Apply the same theme on load
+        document.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark-theme-variables');
+                document.querySelectorAll('.form-control').forEach(input => input.classList.add('dark-theme-variables'));
+                document.querySelector('form').classList.add('dark-theme-variables');
+                document.querySelector('button').classList.add('dark-theme-variables');
+            }
+        });
+
+        // Listen for theme changes from parent
+        window.addEventListener('storage', () => {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark-theme-variables');
+                document.querySelectorAll('.form-control').forEach(input => input.classList.add('dark-theme-variables'));
+                document.querySelector('form').classList.add('dark-theme-variables');
+                document.querySelector('button').classList.add('dark-theme-variables');
+            } else {
+                document.body.classList.remove('dark-theme-variables');
+                document.querySelectorAll('.form-control').forEach(input => input.classList.remove('dark-theme-variables'));
+                document.querySelector('form').classList.remove('dark-theme-variables');
+                document.querySelector('button').classList.remove('dark-theme-variables');
+            }
+        });
+    </script>
+    <script src="script.js">
+
+    </script>
+</body>
+</html>
