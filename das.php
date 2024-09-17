@@ -10,12 +10,9 @@
 // error_reporting(E_ALL);
 // ini_set('display_errors', 1);
 // Connect to the database
-$servername = "localhost:3308";
-$username = "root";
-$password = "";
-$dbname = "inventory";
+include_once("config.php");
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($host, $user, $pass, $db_name);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

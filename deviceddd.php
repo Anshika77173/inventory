@@ -2,13 +2,11 @@
 session_start();
 
 // Database connection
-$servername = "localhost:3308";
-$username = "root";
-$password = "";
-$dbname = "inventory";
-
+include_once("config.php");
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    
+
+    $conn = new PDO("mysql:host=$host;dbname=$db_name", $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch(PDOException $e) {
     echo json_encode(['error' => "Connection failed: " . $e->getMessage()]);

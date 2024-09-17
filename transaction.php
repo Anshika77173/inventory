@@ -1,11 +1,7 @@
 <?php
-$servername = "127.0.0.1:3308";
-$username = "root";
-$password = "";
-$dbname = "inventory";
+include_once("config.php");
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($host, $user, $pass, $db_name);
 
 // Check connection
 if ($conn->connect_error) {

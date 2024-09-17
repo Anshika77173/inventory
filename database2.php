@@ -1,9 +1,5 @@
 <?php
-// database.php
-$host = 'localhost:3308';
-$user = 'root';
-$pass = '';
-$db_name = 'inventory';
+include_once("config.php");
 
 $conn = new mysqli($host, $user, $pass, $db_name);
 
