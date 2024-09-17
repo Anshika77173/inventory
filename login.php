@@ -86,6 +86,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             margin-top: 30px;
             font-size: 16px;
         ">Don't have an account? <a href="registration.php">Register here</a>.</p>
+         <p>
+            admin@gmail.com/password
+        </p>
     </div>
 </body>
 </html>
